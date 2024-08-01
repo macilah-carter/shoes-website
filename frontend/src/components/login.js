@@ -19,6 +19,7 @@ const Login = () => {
     fetch('https://shoes-website-backend.vercel.app/user/login', {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
+      credentials: 'include',
       body: JSON.stringify(loginDetails)
     }).then(response => response.json())
     .then((data) => {
