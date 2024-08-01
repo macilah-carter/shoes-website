@@ -16,7 +16,7 @@ const port = 8000
 DataBase();
 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://shoes-website-backend.vercel.app",
     credentials: true,
 }
 ));
