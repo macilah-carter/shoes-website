@@ -16,7 +16,8 @@ const port = 8000
 DataBase();
 
 app.use(cors({
-    origin: "https://shoes-website-frontend.vercel.app/",
+    origin: "https://shoes-website-frontend.vercel.app",
+    methods: ['POST','GET'],
     credentials: true,
 }
 ));
