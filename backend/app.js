@@ -13,7 +13,6 @@ const cors = require('cors');
 const app = express()
 const port = 8000
 
-console.log(process.env)
 DataBase();
 
 app.use(cors({

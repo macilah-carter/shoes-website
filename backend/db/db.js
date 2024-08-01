@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const url = 'mongodb+srv://museemacilah:HY99pR5Z9Z61V1j4@website.2viiaas.mongodb.net/';
+const url = 'mongodb+srv://museemacilah:HY99pR5Z9Z61V1j4@website.2viiaas.mongodb.net/shoes';
 
 
 const DataBase = async () => {

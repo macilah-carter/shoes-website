@@ -7,7 +7,6 @@ const verify = require("../user/verifyUser")
 
 
 const jwt_secret = process.env.JWT_TOKEN;
-console.log('JWT Secret:', process.env.JWT_TOKEN);
 
 router.get('/', async (req, res) => {
     try {
