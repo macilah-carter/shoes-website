@@ -16,7 +16,7 @@ const Login = () => {
     const loginDetails = { email, password}
     // console.log(email)
     // console.log(password)
-    fetch('http://localhost:8000/user/login', {
+    fetch('https://shoes-website-backend.vercel.app/user/login', {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(loginDetails)

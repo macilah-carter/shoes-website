@@ -7,7 +7,7 @@ const SingleShoe = () => {
   const { id } = useParams();
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
-  const { shoes: data } = Fetch(`http://localhost:8000/shoes/${id}`);
+  const { shoes: data } = Fetch(`https://shoes-website-backend.vercel.app/shoes/${id}`);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,7 +17,7 @@ const SingleShoe = () => {
     }
     const details = { colour: selectedColor, size: selectedSize };
 
-    fetch("http://localhost:8000/orders", {
+    fetch("https://shoes-website-backend.vercel.app/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(details),
@@ -44,7 +44,7 @@ const SingleShoe = () => {
           <div className="row g-0">
             <div className="col-md-4">
               <img
-                src={`http://localhost:8000/pics/${data.image}`}
+                src={`https://shoes-website-backend.vercel.app/pics/${data.image}`}
                 className="img-fluid rounded-start"
                 alt={data.name}
               />

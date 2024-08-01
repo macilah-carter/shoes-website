@@ -3,7 +3,7 @@ import Fetch from "./fetch";
 import { Rating } from "@mui/material";
 
 const Shop = () => {
-  const { shoes: data } = Fetch("http://localhost:8000/shoes");
+  const { shoes: data } = Fetch("https://shoes-website-backend.vercel.app/shoes");
   // const rand = Math.floor(Math.random())
   return (
     <>
@@ -19,7 +19,7 @@ const Shop = () => {
           {data.slice(0, 6).map((shoe) => (
             <div className="single" key={shoe._id}>
               <img
-                src={`http://localhost:8000/pics/${shoe.image}`}
+                src={`https://shoes-website-backend.vercel.app/pics/${shoe.image}`}
                 alt={shoe.name}
               />
               <p className="ms-1">Name: {shoe.name}</p>
@@ -38,7 +38,7 @@ const Shop = () => {
           {data.slice(7, 8).map((shoe, index) => (
             <div className="diff" key={shoe._id}>
               <img
-                src={`http://localhost:8000/pics/${shoe.image}`}
+                src={`https://shoes-website-backend.vercel.app/pics/${shoe.image}`}
                 alt={shoe.name}
               />
               {/* <div className="buttons">
@@ -75,7 +75,7 @@ const Shop = () => {
             key={shoe._id}
           >
             <img
-              src={`http://localhost:8000/pics/${shoe.image}`}
+              src={`https://shoes-website-backend.vercel.app/pics/${shoe.image}`}
               alt={shoe.name}
             />
             <p className="ms-1">{shoe.name}</p>
@@ -105,7 +105,7 @@ const Shop = () => {
         {data.slice(7, 8).map((shoe, index) => (
           <div className="diff" key={shoe._id}>
             <img
-              src={`http://localhost:8000/pics/${shoe.image}`}
+              src={`https://shoes-website-backend.vercel.app/pics/${shoe.image}`}
               alt={shoe.name}
             />
           </div>

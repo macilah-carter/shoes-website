@@ -17,7 +17,7 @@ function Navigation() {
 
   const handleLogout = async () => {
     try {
-      const responce = await fetch("http://localhost:8000/user/logout", {
+      const responce = await fetch("https://shoes-website-backend.vercel.app/user/logout", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         credentials: "include",

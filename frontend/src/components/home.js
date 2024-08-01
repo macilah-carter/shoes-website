@@ -4,7 +4,7 @@ import Fetch from "./fetch";
 import Shop from "./shop";
 
 function Home() {
-  const { shoes: data, error } = Fetch("http://localhost:8000/shoes");
+  const { shoes: data, error } = Fetch("https://shoes-website-backend.vercel.app/shoes");
 
   return (
     <>
