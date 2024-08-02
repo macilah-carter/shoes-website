@@ -81,7 +81,7 @@ function Navigation() {
               {isLoggedIn ? (
                 <>
                   <li className="nav-item">
-                    <button className="nav-link" onClick={handleLogout}>
+                    <button className="btn btn-secondary nav-link" onClick={handleLogout}>
                       Logout
                     </button>
                   </li>
@@ -93,12 +93,16 @@ function Navigation() {
                 </>
               ) : (
                 <>
-                  <li className="nav-tem">
+                  <li className="nav-item">
                     <Link className="nav-link" to={"/login"}>
                       login
                     </Link>
                   </li>
-                  <li className="nav-item">sign up</li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to={"/login"}>
+                      login
+                    </Link>
+                  </li>
                 </>
               )}
             </ul>
