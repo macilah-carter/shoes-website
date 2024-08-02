@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const verify = require("./routes/user/verifyUser")
 const cors = require('cors');
-
+const path = require('path');
 
 const app = express()
 const port = 8000
