@@ -23,9 +23,9 @@ const Login = () => {
       body: JSON.stringify(loginDetails)
     }).then(response => response.json())
     .then((data) => {
-      // if(!data.token){
-      //   navigate('/login')
-      // }
+      if(!data.token){
+        navigate('/login')
+      }
       if(data.EmailPassword){
         setEmptyEmailPassErr(data.EmailPassword)
         return;
