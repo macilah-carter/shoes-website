@@ -15,49 +15,6 @@ code {
     monospace;
 }
 
-.navigation {
-  background-color: hsl(212.7 26.8% 83.9%);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-}
-.navigation .logo {
-  margin-left: 5px;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  color: black;
-  border-radius: 50%;
-  border: 1px solid whitesmoke;
-}
-.list {
-  margin: 0 1.5em 0 0;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-}
-.navigation ul li {
-  margin: 0 20px;
-  border: 1px solid whitesmoke;
-  padding: 0 10px;
-  display: flex;
-  list-style: none;
-  border-radius: 12px;
-}
-.navigation ul li:hover {
-  background-color: gray;
-  border-radius: 12px;
-  text-align: center;
-  color: whitesmoke;
-}
-.navigation ul li a {
-  text-decoration: none;
-}
-.navigation ul li a:hover {
-  color: white;
-}
 
 #home {
   background-color: hsl(212.7 26.8% 83.9%);
