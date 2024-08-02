@@ -27,7 +27,7 @@ function Home() {
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
               >
                 <img
-                  src={`http://localhost:8000/pics/${shoe.image}`}
+                  src={`https://shoes-website-backend.vercel.app/pics/${shoe.image}`}
                   alt={error && { error }}
                   className="d-block w-100"
                 />
