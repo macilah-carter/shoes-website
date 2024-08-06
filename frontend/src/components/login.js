@@ -16,6 +16,8 @@ const Login = () => {
     const loginDetails = { email, password}
     // console.log(email)
     // console.log(password)
+      console.log('Fetching from:', 'https://shoes-website-backend.vercel.app/user/login');
+
     fetch('https://shoes-website-backend.vercel.app/user/login', {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
