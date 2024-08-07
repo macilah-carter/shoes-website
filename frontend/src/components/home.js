@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import About from "./About";
 import Fetch from "./fetch";
 import Shop from "./shop";
+import TopPics from './TopPicks';
 
 function Home() {
   const { shoes: data, error } = Fetch("https://shoes-website-backend.vercel.app/shoes");
@@ -35,6 +36,9 @@ function Home() {
             ))}
           </div>
         </div>
+      </div>
+      <div id="Toppics" className="topPicks">
+        <TopPics />
       </div>
       <div id="about" className="aboutSec">
         <About />

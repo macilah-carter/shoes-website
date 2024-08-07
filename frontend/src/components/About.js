@@ -2,12 +2,11 @@ const About = () => {
   return (
     <div className="about">
       <div className="content">
-        <h1>hero text number one</h1>
-        <i><h3>hero text number or image</h3></i>
-        <h4>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </h4>
+        <h1>Discover</h1>
+        <i><h2>the finest</h2></i>
+        <p>
+          Step into style: Explore our Expansive collection of stylish and comfortable shoes crafted to elevate your looks
+        </p>
       </div>
       <img
         src="../../the-best-nike-high-top-sneakers-you-can-buy-right-now-articles-ogc.jpg"

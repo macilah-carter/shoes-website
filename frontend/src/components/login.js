@@ -16,7 +16,6 @@ const Login = () => {
     const loginDetails = { email, password}
     // console.log(email)
     // console.log(password)
-      console.log('Fetching from:', 'https://shoes-website-backend.vercel.app/user/login');
 
     fetch('https://shoes-website-backend.vercel.app/user/login', {
       method: 'POST',
@@ -46,7 +45,7 @@ const Login = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className='loginForm' onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email address

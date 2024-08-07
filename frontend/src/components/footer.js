@@ -44,7 +44,7 @@ const Footer = () => {
           <div className="col copyright">
             <p className="">
               <small className="text-white-50">
-                © 2019. All Rights Reserved.
+                © 2024. All Rights Reserved.
               </small>
             </p>
           </div>
