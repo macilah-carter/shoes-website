@@ -12,44 +12,31 @@ const SingleShoe = () => {
   );
 
   const Daraja = () => {
-    const url =
-      "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"; // Replace with your API endpoint
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", "Bearer 2kwsegrAMOnnc3DprB9ZNfeHPiTU");
 
-    const Body = {
-      BusinessShortCode: 174379,
-      Password:
-        "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMjQwODA3MjE0MzEy",
-      Timestamp: "20240807214312",
-      TransactionType: "CustomerPayBillOnline",
-      Amount: 1,
-      PartyA: 254726114885,
-      PartyB: 174379,
-      PhoneNumber: 254726114885,
-      CallBackURL: "https://shoes-website-frontend.vercel.app",
-      AccountReference: "CompanyXLTD",
-      TransactionDesc: "Payment of X",
-    };
-
-    fetch(url, {
-      method: "POST", // Specify the HTTP method
-      headers: {
-        "Content-Type": "application/json",
-        'Authorization': "Bearer 2kwsegrAMOnnc3DprB9ZNfeHPiTU", // Set the content type to JSON
-      },
-      body: JSON.stringify(Body), // Convert the data to JSON string
+    fetch("https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({
+        BusinessShortCode: 174379,
+        Password:
+          "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMjQwODA3MjE0MzEy",
+        Timestamp: "20240807214312",
+        TransactionType: "CustomerPayBillOnline",
+        Amount: 1,
+        PartyA: 254708374149,
+        PartyB: 174379,
+        PhoneNumber: 254708374149,
+        CallBackURL: "https://mydomain.com/path",
+        AccountReference: "CompanyXLTD",
+        TransactionDesc: "Payment of X",
+      }),
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok " + response.statusText);
-        }
-        return response.json(); // Parse the JSON from the response
-      })
-      .then((data) => {
-        console.log("Success:", data); // Handle the response data
-      })
-      .catch((error) => {
-        console.error("Error:", error); // Handle any errors
-      });
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error));
   };
   const handleSubmit = (event) => {
     event.preventDefault();
