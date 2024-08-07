@@ -32,7 +32,7 @@ const SingleShoe = () => {
           PartyA: 254726114885,
           PartyB: 174379,
           PhoneNumber: 254726114885,
-          CallBackURL: "https://shoes-website-backend.vercel.app",
+          CallBackURL: "https://shoes-website-frontend.vercel.app",
           AccountReference: "CompanyXLTD",
           TransactionDesc: "Payment of X",
         })
