@@ -21,9 +21,9 @@ const Body =
     "Timestamp": "20240807214312",
     "TransactionType": "CustomerPayBillOnline",
     "Amount": 1,
-    "PartyA": 254708374149,
+    "PartyA": 254726114885,
     "PartyB": 174379,
-    "PhoneNumber": 254708374149,
+    "PhoneNumber": 254726114885,
     "CallBackURL": "https://mydomain.com/path",
     "AccountReference": "CompanyXLTD",
     "TransactionDesc": "Payment of X" 
