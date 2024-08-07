@@ -24,7 +24,7 @@ const Body =
     "PartyA": 254726114885,
     "PartyB": 174379,
     "PhoneNumber": 254726114885,
-    "CallBackURL": "https://mydomain.com/path",
+    "CallBackURL": "https://shoes-website-frontend.vercel.app",
     "AccountReference": "CompanyXLTD",
     "TransactionDesc": "Payment of X" 
   }
