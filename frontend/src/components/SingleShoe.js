@@ -11,6 +11,34 @@ const SingleShoe = () => {
     `https://shoes-website-backend.vercel.app/shoes/${id}`
   );
 
+  const daraja = () => {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", "Bearer fUx6sJCvnKyO6RQ9IgfOJGMb9hKx");
+
+    fetch("https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({
+        BusinessShortCode: 174379,
+        Password:
+          "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMjQwODA5MjEzMjU1",
+        Timestamp: "20240809213255",
+        TransactionType: "CustomerPayBillOnline",
+        Amount: 1,
+        PartyA: 254726114885,
+        PartyB: 174379,
+        PhoneNumber: 254726114885,
+        CallBackURL: "https://shoes-website-frontend.vercel.app",
+        AccountReference: "CompanyXLTD",
+        TransactionDesc: "Payment of X",
+      }),
+    })
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error));
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!selectedColor || !selectedSize) {
@@ -31,6 +59,7 @@ const SingleShoe = () => {
         return res.json();
       })
       .then((dat) => {
+        daraja();
         alert("Purchase completed");
       })
       .catch((error) => {
