@@ -3,7 +3,8 @@ const User = require('../../db/schema/user');
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const jwt = require('jsonwebtoken')
-const verify = require("../user/verifyUser")
+const verify = require("../user/verifyUser");
+const passport = require('passport');
 
 
 const jwt_secret = process.env.JWT_TOKEN;
@@ -79,5 +80,14 @@ router.get('/profile',verify, async (req, res) => {
   }
 });
 
+
+//login with google
+router.get('/google',passport.authenticate('google', {
+    scope: ['profile']
+}));
+
+router.get('/google/redirect', passport.authenticate('google'),(req, res) => {
+    res.render('call abck')
+})
 
 module.exports = router;

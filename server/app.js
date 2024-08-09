@@ -9,6 +9,10 @@ const cookieParser = require("cookie-parser");
 const verify = require("./routes/user/verifyUser")
 const cors = require('cors');
 const path = require('path');
+const session = require('express-session');
+const passport =require('passport')
+const passportSetup = require('./config/passport-oauth')
+
 
 const app = express()
 const port = 8000
@@ -23,6 +27,17 @@ app.use(cors({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(session({
+    secret:process.env.SESSION,
+    resave: false,
+    saveUninitialized:true,
+    cookie: {secure: false}
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(cookieParser());
 
 app.use('/pics', express.static(path.join(__dirname, 'public/pics')));

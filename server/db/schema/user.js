@@ -21,6 +21,9 @@ const userSchema = new schema({
         type: String,
         required: true,
         minlength: [6, 'minimum password length is 6 characters']
+    },
+    googleid:{
+        type:String
     }
 });
 
