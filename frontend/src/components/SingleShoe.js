@@ -14,7 +14,7 @@ const SingleShoe = () => {
   const daraja = () => {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
-    headers.append("Access-Control-Allow-Origin","*")
+    headers.append("Access-Control-Allow-Origin","https://shoes-website-frontend.vercel.app");
     headers.append("Authorization", "Bearer fUx6sJCvnKyO6RQ9IgfOJGMb9hKx");
 
     fetch("https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest", {
