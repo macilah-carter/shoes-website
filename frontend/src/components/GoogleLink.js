@@ -1,15 +1,14 @@
 const Google = () => {
-  const handleGoogleLogin = () => {
-    // Redirect the user to the Google OAuth flow initiated by your backend
-    window.location.href = "https://shoes-website-backend.vercel.app/user/google/redirect";
-  };
 
   return (
     <div className="googlelogin">
-      <button className="btn btn-primary" onClick={handleGoogleLogin}>
+        <link rel="stylesheet" href="https://shoes-website-backend.vercel.app/user/google/redirect" >
+          <button className="btn btn-primary">
         Sign in with Google
       </button>
+        </link>
     </div>
+        
   );
 };
 
