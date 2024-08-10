@@ -8,14 +8,14 @@ passport.serializeUser((user, done) => {
 })
 
 passport.deserializeUser((id, done) => {
-    user.findOne(id).then((user) => {
+    user.findById(id).then((user) => {
         done(null, user)
     })
 })
 
 passport.use(
     new GoogleStrategy({
-        callbackURL: 'https://shoes-website-backend.vercel.app/user/google/redirect',
+        callbackURL: '/user/google/redirect',
         clientID:process.env.CLIENTID,   
         clientSecret: process.env.CLIENTSECRET
     },
