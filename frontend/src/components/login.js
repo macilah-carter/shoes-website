@@ -87,10 +87,8 @@ const Login = () => {
         <button type="submit" className="btn btn-primary">
           Login
         </button>
-
-         <Google/>
-
       </form>
+       <Google/>
     </>
   );
 };
