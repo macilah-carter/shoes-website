@@ -21,6 +21,7 @@ DataBase();
 
 app.use(cors({
     origin: "https://shoes-website-frontend.vercel.app",
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }
 ));
