@@ -15,7 +15,7 @@ passport.deserializeUser((id, done) => {
 
 passport.use(
     new GoogleStrategy({
-        callbackURL: '/user/google/redirect',
+        callbackURL: 'https://shoes-website-backend.vercel.app/user/google/redirect',
         clientID:process.env.CLIENTID,   
         clientSecret: process.env.CLIENTSECRET
     },
