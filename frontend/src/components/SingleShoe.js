@@ -32,7 +32,7 @@ const SingleShoe = () => {
         return res.json();
       })
       .then((dat) => {
-        daraja();
+        
         alert("Purchase completed");
       })
       .catch((error) => {

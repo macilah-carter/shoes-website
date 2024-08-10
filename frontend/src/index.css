@@ -255,6 +255,9 @@ code {
   width: 50%;
   margin: 2rem auto;
 }
+.googlelogin{
+  margin-block: 3rem;
+}
 .footer {
   margin-top: 25rem;
   background: #152f4f;

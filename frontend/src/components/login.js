@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
+import Google from './GoogleLink';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -82,12 +83,12 @@ const Login = () => {
           </label>
         </div>
         {emptyEmailPassErr && <p className='alert alert-danger'>{emptyEmailPassErr}</p>}
-
         
-
         <button type="submit" className="btn btn-primary">
-          Submit
+          Login
         </button>
+
+         <Google/>
 
       </form>
     </>
