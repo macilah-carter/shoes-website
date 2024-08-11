@@ -12,10 +12,4 @@
       "dest": "/app.js"
     }
   ],
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "https://shoes-website-backend.vercel.app/$1"
-    }
-  ]
 }
