@@ -30,11 +30,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(session({
-    secret:process.env.SESSION,
+    secret: process.env.SESSION,
     resave: false,
-    saveUninitialized:true,
-    cookie: {secure: false}
-}))
+    saveUninitialized: true,
+    cookie: { secure: process.env.NODE_ENV === 'production' } // Set secure to true in production
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
