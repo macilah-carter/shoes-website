@@ -36,7 +36,7 @@ app.use(cors({
     credentials: true
 }));
 
-
+// console.log("Google OAuth Callback URL:", "https://shoes-website-backend.vercel.app/user/google/redirect");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
