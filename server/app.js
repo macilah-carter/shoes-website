@@ -19,12 +19,23 @@ const port = 8000
 
 DataBase();
 
+const allowedOrigins = [
+    'http://localhost:3000',
+    'https://shoes-website-frontend.vercel.app'
+];  
 app.use(cors({
-    origin: "https://shoes-website-frontend.vercel.app",
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-}
-));
+    origin: function(origin, callback){
+
+      if(!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+          callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true
+}));
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

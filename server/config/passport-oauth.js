@@ -1,3 +1,4 @@
+require('dotenv').config();
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20');
 const User = require('../db/schema/user');
@@ -12,12 +13,13 @@ passport.deserializeUser((id, done) => {
         done(null, user)
     })
 })
-
+// console.log("Google OAuth Callback URL:", "https://shoes-website-backend.vercel.app/user/google/redirect");
+// console.log("Google Client ID:", process.env.CLIENTID);
+// console.log("Google Client Secret:", process.env.CLIENTSECRET);
+// console.log("Google Callback URL:", process.env.GOOGLE_CALLBACK_URL);
 passport.use(
-    console.log("Google OAuth Callback URL:", "https://shoes-website-backend.vercel.app/user/google/redirect");
-
     new GoogleStrategy({
-        callbackURL: "https://shoes-website-backend.vercel.app/user/google/redirect",
+        callbackURL: process.env.GOOGLE_CALLBACK_URL,
         clientID:process.env.CLIENTID,   
         clientSecret: process.env.CLIENTSECRET
     },
