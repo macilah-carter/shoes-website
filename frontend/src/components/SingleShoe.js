@@ -1,23 +1,42 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Fetch from "./fetch";
-import { Rating } from "@mui/material";
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Grid,
+  Select,
+  MenuItem,
+  Button,
+  FormControl,
+  InputLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  Rating,
+  CircularProgress,
+  Box,
+  FormLabel,
+} from "@mui/material";
 
 const SingleShoe = () => {
   const { id } = useParams();
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
+
   const { shoes: data } = Fetch(
     `https://shoes-website-backend.vercel.app/shoes/${id}`
   );
 
-  
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!selectedColor || !selectedSize) {
       alert("Please select both size and color");
       return;
     }
+
     const details = { colour: selectedColor, size: selectedSize };
 
     fetch("https://shoes-website-backend.vercel.app/orders", {
@@ -31,76 +50,99 @@ const SingleShoe = () => {
         }
         return res.json();
       })
-      .then((dat) => {
-        
+      .then(() => {
         alert("Purchase completed");
       })
       .catch((error) => {
-        console.log("Error submitting order: ", error);
+        console.error("Error submitting order: ", error);
         alert("There was an error processing your order");
       });
   };
 
-  return (
-    <>
-      {data && (
-        <div className="card" key={data._id}>
-          <div className="row g-0">
-            <div className="col-md-4">
-              <img
-                src={`https://shoes-website-backend.vercel.app/pics/${data.image}`}
-                className="img-fluid rounded-start"
-                alt={data.name}
-              />
-              <Rating />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title">{data.name}</h5>
-                <p className="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-                <form onSubmit={handleSubmit}>
-                  <p className="card-text">
-                    <select
-                      id="size"
-                      value={selectedSize}
-                      onChange={(e) => setSelectedSize(e.target.value)}
-                    >
-                      <option value="" disabled>
-                        Select Size
-                      </option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                    </select>
-                  </p>
-                  {data.colour &&
-                    data.colour.map((color) => (
-                      <p className="card-text" key={color}>
-                        <input
-                          type="radio"
-                          id={color}
-                          name="color"
-                          value={color}
-                          checked={selectedColor === color}
-                          onChange={(e) => setSelectedColor(e.target.value)}
-                        />
-                        <label htmlFor={color} className="ms-1">
-                          {color}
-                        </label>
-                      </p>
-                    ))}
+  if (!data) {
+    return (
+      <Box display="flex" justifyContent="center" mt={5}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
-                  <button className="btn btn-primary">Buy</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+  return (
+    <Grid container justifyContent="center" mt={3}>
+      <Card sx={{ maxWidth: 600, padding: 2 }}>
+        <CardMedia
+          component="img"
+          height="300"
+          image={`https://shoes-website-backend.vercel.app/pics/${data.image}`}
+          alt={data.name}
+          sx={{ borderRadius: 2 }}
+        />
+        <CardContent>
+          <Typography variant="h5" fontWeight="bold">
+            {data.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary" mt={1}>
+            This is a premium shoe with excellent quality and durability.
+          </Typography>
+
+          <Box mt={2} display="flex" alignItems="center">
+            <Rating value={4} readOnly precision={0.5} />
+            <Typography variant="body2" ml={1}>
+              (4.5 stars)
+            </Typography>
+          </Box>
+
+          <form onSubmit={handleSubmit} style={{ marginTop: 16 }}>
+            {/* Size Selection */}
+            <FormControl fullWidth sx={{ mt: 2 }}>
+              <InputLabel>Select Size</InputLabel>
+              <Select
+                value={selectedSize}
+                onChange={(e) => setSelectedSize(e.target.value)}
+                required
+              >
+                <MenuItem value="" disabled>
+                  Choose Size
+                </MenuItem>
+                <MenuItem value="7">Size 7</MenuItem>
+                <MenuItem value="8">Size 8</MenuItem>
+              </Select>
+            </FormControl>
+
+            {/* Color Selection */}
+            <FormControl component="fieldset" sx={{ mt: 2 }}>
+              <FormLabel component="legend">Choose Color</FormLabel>
+              <RadioGroup
+                row
+                value={selectedColor}
+                onChange={(e) => setSelectedColor(e.target.value)}
+              >
+                {data.colour &&
+                  data.colour.map((color) => (
+                    <FormControlLabel
+                      key={color}
+                      value={color}
+                      control={<Radio />}
+                      label={color}
+                    />
+                  ))}
+              </RadioGroup>
+            </FormControl>
+
+            {/* Buy Button */}
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              fullWidth
+              sx={{ mt: 3 }}
+            >
+              Buy Now
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </Grid>
   );
 };
 

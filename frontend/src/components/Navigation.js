@@ -42,7 +42,7 @@ function Navigation() {
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link to="/" className="navbar-brand logo" href="#">
+          <Link to="/nav" className="navbar-brand logo" href="#">
             Logo
           </Link>
           <button
@@ -74,7 +74,7 @@ function Navigation() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/shop">
+                <Link className="nav-link3" to="/shop">
                   Shop
                 </Link>
               </li>
@@ -98,11 +98,11 @@ function Navigation() {
                       login
                     </Link>
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <Link className="nav-link" to={"/login"}>
                       login
                     </Link>
-                  </li>
+                  </li> */}
                 </>
               )}
             </ul>

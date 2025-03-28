@@ -2,55 +2,46 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className=" pt-5 pb-5 footer">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-5 col-xs-12 about-company">
-            <h2>Heading</h2>
-            <p className="pr-5 text-white-50">
+    <footer className="bg-gray-900 text-white py-8">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Top Section */}
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+          {/* About */}
+          <div className="md:w-1/2">
+            <h2 className="text-2xl font-bold text-orange-500">Street Shoe</h2>
+            <p className="text-gray-400 mt-2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-              ante mollis quam tristique convallis{" "}
+              ante mollis quam tristique convallis.
             </p>
-            <p>
-              <Link>
-                <i className="fa fa-facebook-square mr-1"></i>
+            <div className="mt-4 flex space-x-4">
+              <Link to="#" className="text-gray-400 hover:text-white text-xl">
+                <i className="fa fa-facebook-square"></i>
               </Link>
-              <Link>
-                <i className="fa fa-linkedin-square ms-1"></i>
+              <Link to="#" className="text-gray-400 hover:text-white text-xl">
+                <i className="fa fa-linkedin-square"></i>
               </Link>
-            </p>
+            </div>
           </div>
-          <div className="col-lg-3 col-xs-12 links">
-            <h4 className="mt-lg-0 mt-sm-3">Links</h4>
-            <ul className="m-0 p-0">
-              <li>
-                - <Link>Home</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="col-lg-4 col-xs-12 location">
-            <h4 className="mt-lg-0 mt-sm-4">Location</h4>
-            <p>22, 4th street avenue</p>
-            <p className="mb-0">
-              <i className="fa fa-phone mr-4"></i>(254) 712345678
+
+          {/* Location */}
+          <div className="md:w-1/3">
+            <h4 className="text-lg font-semibold text-orange-500">Location</h4>
+            <p className="text-gray-400 mt-2">22, 4th Street Avenue</p>
+            <p className="text-gray-400 flex items-center mt-2">
+              <i className="fa fa-phone mr-2"></i> (254) 712345678
             </p>
-            <p>
-              <i className="fa fa-envelope-o mr-4 "></i>streetShoe@gmail.com
+            <p className="text-gray-400 flex items-center mt-1">
+              <i className="fa fa-envelope mr-2"></i> streetShoe@gmail.com
             </p>
           </div>
         </div>
 
-        <div className="row mt-5">
-          <div className="col copyright">
-            <p className="">
-              <small className="text-white-50">
-                © 2024. All Rights Reserved.
-              </small>
-            </p>
-          </div>
+        {/* Bottom Section */}
+        <div className="border-t border-gray-700 mt-8 pt-4 text-center">
+          <p className="text-gray-400 text-sm">© 2024. All Rights Reserved.</p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
